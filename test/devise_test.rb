@@ -23,8 +23,8 @@ class DeviseTest < ActiveSupport::TestCase
   end
 
   test 'model options can be configured through Devise' do
-    swap Devise, :allow_unconfirmed_access_for => 113, :pepper => "foo" do
-      assert_equal 113, Devise.allow_unconfirmed_access_for
+    swap Devise, :allow_unconfirmed_access_for => 113.seconds, :pepper => "foo" do
+      assert_equal 113.seconds, Devise.allow_unconfirmed_access_for
       assert_equal "foo", Devise.pepper
     end
   end
